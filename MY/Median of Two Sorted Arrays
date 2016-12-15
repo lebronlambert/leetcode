@@ -1,0 +1,45 @@
+// class Solution {
+// public:
+//     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+//       int l1=nums1.size();
+//       int l2=nums2.size();
+//       vector<int> remember;
+//       int count=0;
+//       double medium=0.0;
+//       bool flag;
+//       if((l1+l2)%2==0) flag=true;
+//       else flag=false;
+//       int i=0,j=0;
+//     //   if(l1==0)
+//     //         if(flag)
+//     //             return  ((double)nums2[nums2.size()/2]+(double)nums2[nums2.size()/2+1])/2;
+//     //         else return (double)nums2[nums2.size()/2+1];
+//     //   if(l2==0)
+//     //         if(flag)
+//     //             return  ((double)nums1[nums1.size()/2]+(double)nums1[nums1.size()/2+1])/2;
+//     //         else return (double)nums1[nums1.size()/2+1];
+//       while(i<l1||j<l2){
+//             if(nums1[i]>nums2[j]){
+//                 if(j!=l2)
+//                     remember.push_back(nums2[j++]);//j++
+//             }else{
+//                 if(i!=l1)
+//                     remember.push_back(nums2[i++]);//j++
+            
+//                 else
+//                     remember.push_back(nums2[j++]);//only three lines!
+//             }
+//             count++;
+//             if(count>=(((l1+l2)/2)+1))
+//                 break;
+//       }
+//       if(flag)
+//             medium=((double)remember[count-1]+(double)remember[count-2])/2;//the different double int type.ugly!!!
+//       else 
+//             medium=(double)remember[count-1];
+//       return medium;
+//     }
+// };
+
+
+//这上面的代码之所以要注释掉，不仅仅没有考虑到如如果一个为空的情况，而且不满足时间复杂度哦！这可是第一个必须提高复杂度的题
