@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int l=s.length();
+        int first=0;//remember the first place of the unique subsequence 
+        int last=1;//remember the last place of the unique subsequence 
+        int max=1;
+        int j;
+        if(l==0)//in fact we can just initialize the last to be 1 to fix the problem
+            return 0;
+        for(int i=1;i<l;i++){
+            for(j=first;j<last;j++){
+                if(s[i]==s[j])
+                    break;
+            }
+            if(j==last){
+                last+=1;// a small trick for the next line,so I must increase the max by 1
+                if(last-first>max)
+                    max=last-first;
+            }else{ 
+                first=j+1;
+                last+=1;
+            }
+        }
+        return max;
+    }
+};
+
+
+
