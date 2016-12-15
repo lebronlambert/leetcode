@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> result;
+        for(int i=0;i<nums.size()-1;i++){
+            for(int j=i+1;j<nums.size();j++){
+                if(target-nums[i]-nums[j]==0){
+                    result.push_back(i);
+                    result.push_back(j);
+                }
+            }
+        } 
+        return result;
+    }
+};
+// 刚刚做完了第一题 Two Sum 虽然easy到爆了但是在阅读英文题目的过程中还是很开心的，还看了解释，我个人使用的是暴力破解，复杂度肯定喳喳了，
+
+//先把vector拷贝到一个n＊2的矩阵，复杂度N，空间复杂度N，第二维是记录index
+//然后快速排序NlogN，复杂度，然后左右逼近，复杂度N
+//从左开始如果最小的加最大的小于target，就继续从左移动，如果大于tatget，就从右移动，如果等于target，还是左移。
