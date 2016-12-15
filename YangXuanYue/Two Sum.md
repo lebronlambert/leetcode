@@ -1,9 +1,7 @@
-Solution
-
-Use two std::unordered_map to store the visited number and their positions, just scan and check.
-
-Code
-
+#Solution
+Use two `std::unordered_map` to store the visited number and their positions, just scan and check.
+#Code
+```Cpp
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -22,3 +20,4 @@ public:
         return ans;
     }
 };
+```
