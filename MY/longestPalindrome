@@ -1,0 +1,42 @@
+class Solution {
+//第一反应是：最大是1000是很有作用的 这个可以帮助我们构建一个hash表格
+//第一次知道其实leetcode 即便是submit solution通过了可以去看看效率值的
+//记住 特殊值比如初始为 空 初始为一个 两个（同或者不同），三个  我这个都ok哦！！！
+
+public:
+    string longestPalindrome(string s) {
+        int n=s.length();
+        int max=0;
+        int temp=0;
+        int max_temp=0;
+        int i_remember=0;//if max=1 then it will be the first character
+        // if(n==0)
+        //     return "";
+        for(int i=0;i<n;i++){
+            temp=0;
+            while((i-temp>=0)&&(i+temp<=n-1)){
+                if(s[i-temp]!=s[i+temp])
+                    break;
+                if(temp*2+1>max){
+                    max=temp*2+1;
+                    i_remember=i;
+                    max_temp=temp;
+                }
+                temp+=1;
+            }
+            temp=0;
+            while((i-temp>=0)&&(i+temp+1<=n-1)){
+                if(s[i-temp]!=s[i+temp+1])
+                    //temp=0;
+                    break;
+                if(temp*2+2>max){
+                    max=temp*2+2;
+                    i_remember=i;
+                    max_temp=temp;
+                }
+                temp+=1;
+            }
+        }
+        return s.substr(i_remember-max_temp,max);
+    }
+};
